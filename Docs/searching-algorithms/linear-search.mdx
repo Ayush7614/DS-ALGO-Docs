@@ -1,1 +1,138 @@
+---
+title: Linear Search
+slug: /searching-algorithms/linear-search
+---
 
+## Introduction 
+Linear Search is one of the easiest searching algorithm.
+The main aim of a searching algorithm is to search for a 
+desired element in the whole array. Linear Search sequentially 
+searches for an element in an array.
+
+## Algorithm 
+* In Linear Search, we start from the 0th index of the array,
+we compare each element with the key (desired element).
+
+* If the key is same as the element of array ,we return the index
+of that element.
+
+* If the key does not match any element then ,we return -1.
+
+## Code
+``` C++
+/* Example
+We need to search 6 in the array.
+
+|1|5|2|0|6|8|     
+ |______________ is a[0]==6 no then we move to next element.
+   |_____________is a[1]==6 no then we move to next element.
+     |___________is a[2]==6 no we move to next element. 
+        |________is a[3]==6 no we move to next element.
+           |_____is a[4]==6 yes ,thus we return 4.
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+//Function for Linear Search.
+void linearSearch(int a[],int size,int key)
+{
+  for(i=0;i<size;i++)    //traversing the array
+  {
+    //check whether key is present or not
+    if(a[i]==key)       
+    {
+      //if found return i
+      cout<<"Element found at "<<i<<endl;
+      break;       
+    }
+  }
+   // if not found
+  if(i==size){
+       cout<<"Not found"<<endl;
+}
+}
+
+int main()
+{
+  int size,i,key;
+  cout<<"Enter size of array: ";
+  cin>>size;
+  cout<<"Enter the elements: ";
+  int arr[1000];
+  for(i=0;i<size;i++)
+  {
+    cin>>a[i];
+  }
+  cout<<"Enter element to be searched: ";
+  cin>>key;  
+  linearSearch(a,size,key);
+  return 0;
+}
+```
+
+``` python
+def linearSearch(a, x):
+    for i in range(len(a)):
+        if arr[i] == x:
+            print("Found at {}".format(i))
+            
+    if i==len(a):
+            print("Element not found")
+
+if __name__=="__main__":
+    a=[]
+    n=int(input("Enter number of elements: "))
+    print("Enter the elements: ")
+    for i in range(n):
+      element=int(input())
+      a.append(element)
+    key=int(input("Enter element to be searched: "))
+    linearSearch(a,key)
+
+```
+
+## Sample Input and Output 
+
+#### Input :
+
+```
+Enter number of elements:5
+Enter the elements 7 9 5 4 3 
+Enter element to be searched 3
+```
+#### Output :
+```
+Element found at 4
+```
+
+#### Input: 
+
+```
+Enter number of elements: 6
+Enter the elements: 11 33 77 4 2 1
+Enter element to be searched: 89
+```
+#### Output :
+
+```
+Not Found
+
+```
+
+## Complexity Analysis
+
+Linear search traverses the whole array while checking
+key. The best case occurs when the key is present at the
+first position itself, then only one comparison is made.
+So the time complexity here is O(1).The worst case occurs 
+when the element is not present in the whole array.So
+the time complexity here is O(n).In linear search, 
+no extra space is used to store anything. So the space complexity is `O(1)`.
+
+* Time Complexity: `O(n)`
+* Space Complexity: `O(1)`
+
+
+# Credits
+* [Siddhi Bhanushali](https://github.com/siddhi-244) for the [C++ and python  implementation]
