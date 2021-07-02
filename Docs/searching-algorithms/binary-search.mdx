@@ -1,1 +1,174 @@
+---
+title: Binary search
+slug: /searching-algorithms/binary-search
+---
 
+## Introduction
+Binary search is another searching algorithm which is
+more effective than the linear Search. Searching algorithms 
+are used to search a desired element in an array.Binary 
+Search does less number of comparisons than linear Search,so
+it is an effective algorithm.Binary Search works only on sorted
+array. It follows divide and conquer approach.
+
+
+## Algorithm 
+* The array should be sorted.
+* We take 3 variables start,mid and end. Start variables
+has the index of 0th element end variable has index of last 
+element and mid points to middle element.
+* We run a loop until start<=end.
+* We check if our desired element is equal to mid element.
+* If yes then return mid.
+* If desired element is greater than the mid element then
+we search in the right array.
+* If desired element is less than the mid element then we
+search in the left array.
+* Else return -1.
+
+## Examples
+```
+For example let the array be [4,5,8,9,11]
+We have to search 9 in the array.
+Here, start =0,end=4 and mid=(start+end)/2,mid=2
+a[mid]=8 which is not equal to 9
+a[mid]<9 hence, start=mid+1
+start=3,end=4,mid=(3+4)/2=3
+a[mid]=9 which is equal to 9 so we return 3.
+```
+
+## Code
+``` c++
+#include <iostream>
+using namespace std;
+int binary_search(int a[],int n,int key){
+  int start=0;
+  int end=n-1;
+  //start should not cross end 
+  
+  while(start<=end){
+    int mid=(start+end)/2;
+    if(a[mid]==key){
+      return mid;
+    }
+    // search in left of Array 
+    else if(a[mid]>key){
+      end=mid-1;
+      
+    }
+    //search in right of Array 
+    else{
+      start=mid+1;
+    }
+    
+    
+  }
+  return -1;
+}
+int main() {
+  int n;
+  cout<<" Enter size of Array "<<endl;
+  cin>>n;
+  int a[1000];
+  cout<<"Enter array elements "<<endl;
+  for(int i=0;i<n;i++){
+    cin>>a[i];
+  }
+  int key;
+  cout<<"Enter element to be searched "<<endl;
+  cin>>key;
+  int ans=binary_search(a,n,key);
+  if(ans==-1){
+      cout<<"Element not found "<<endl;
+}
+   else{
+      cout<<"Element found at "<<ans<<endl;
+  
+}
+```
+
+```python
+def binary_search(arr, x):
+    start= 0
+    end = len(arr) - 1
+    mid = 0
+    while start<= end:
+        mid = (start+ end) // 2
+        # If x is greater, search in right array
+        if arr[mid] < x:
+            start = mid + 1
+
+        # If x is smaller, search in left array
+        elif arr[mid] > x:
+            end= mid - 1
+        # if x is present at mid
+        else:
+            return mid
+ 
+
+    # when we reach at the end of array, then the element was not present
+    return -1
+ 
+
+arr = [ ]
+n=int(input("Enter size of array : "))
+print("Enter array  elements : ")
+for i in range(n):
+    e=int(input())
+    arr.append(e)
+x = int(input("Enter element to search"))
+ans = binary_search(arr, x)
+if(ans==-1):
+    print("Element not found")
+else:
+    print("Element found at ",ans)
+ 
+```
+## Sample Input and Output
+
+#### Input
+
+```
+Enter size of  array :
+5
+Enter array elements :
+5 8 9 11 22 
+Enter  element to search :
+11
+```
+
+#### Output
+
+```
+Element found at 3.
+```
+
+#### Input
+
+```
+Enter size of array :
+6
+Enter array elements:
+3 8 9 77 88 92
+Enter  element to search :
+68
+```
+
+#### Output
+
+```
+Element is not found.
+```
+
+## Complexity Analysis
+The best case scenario for Binary search is when element 
+is present at middle (Time Complexity is O(1)) and worst case is when
+element is not present in whole array(Time Complexity O(log n).
+
+  - Time complexity : `O(log N)`
+  - Space complexity: `O(1)`
+
+
+## Credits
+* [Siddhi Bhanushali](https://github.com/siddhi-244) for the [C++ and python  implementation]
+ 
