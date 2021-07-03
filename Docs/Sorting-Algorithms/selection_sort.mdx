@@ -2,3 +2,139 @@
 title: Selection Sort
 slug: /sorting-algorithms/selection-sort
 ---
+
+## Introduction 
+Selection sort is a sorting algorithm. Sorting algorithm
+are used to arrange the array in particular order.It finds 
+the smallest element and brings it to the beginning.Two subarrys
+are maintained.
+1. The sorted subarray.
+2. The unsorted subarray.
+In every iteration minimum element from the unsorted array is
+is picked and moved to the sorted array.
+
+## Algorithm 
+* Set first element as minimum.
+* Compare the minimum element with second element and if
+the second element is smaller then assign it to minimum.
+* Then,go on comparing minimum to the end of array.
+* Swap the first element and minimum.
+* For next iteration start from the second element as first 
+element is already sorted.
+* Repeat these steps till array is sorted. 
+
+## Example
+```
+
+arr[] =  25 6 10 22 99
+1st iteration:
+Minimum element is 6 and starting element is 25 so we swap
+25 and 6.
+The array becomes
+arr[]= 6 25 10 22 99
+
+Iteration 2:
+Here we start from second element. 
+Minimum element is 10 and starting element is 25 so we swap
+10 and 25.
+arr[]= 6 10 25 22 99 
+
+Iteration 3:
+Here we start from 3rd element. 
+Minimum element is 22 and starting element is 25 so we swap
+25 and 22.
+arr[]=6 10 22 25 99
+
+Hence,our array is sorted.
+
+```
+
+## Code
+``` c++
+#include <bits/stdc++.h>
+using namespace std ;
+void selection_sort(int a[],int n){
+  for (int i=0;i<n;i++){
+//Find minimum element 
+    int min = i;
+    for(int j=i;j<n;j++){
+      if(a[j]<a[min]){
+        min=j;
+      }
+    }
+    swap(a[i],a[min]);
+  }
+}
+
+int main() {
+  int n;
+  cout<<"Enter size of array"<<endl;
+  cin>>n;
+  int a[1000];
+  cout<<"Enter array elements "<<endl;
+  for (int k=0;k<n;k++){
+    cin>>a[k];
+    
+  }
+  selection_sort(a,n);
+  for(int y=0;y<n;y++){
+    cout<<a[y]<<" ";
+  }
+  
+}
+```
+
+``` python
+def selectionSort(array, n):
+   
+    for i in range(n):
+        minimum = i
+
+        for j in range(i + 1, n):
+         
+            # to sort in descending order, change > to < in this line
+            # select the minimum element in each loop
+            if array[j] < array[minimum]:
+                minimum = j
+         
+        # put min at the correct position
+        (array[i], array[minimum]) = (array[minimum], array[i])
+
+
+data = [ ]
+size = int(input("Enter size of array"))
+print("Enter array elements ")
+for i in range(size):
+     e=int(input())
+     data.append(e)
+selectionSort(data, size)
+print('Sorted Array in Ascending Order:')
+print(data)
+
+```
+
+## Sample Input and Output 
+### Input
+```
+Enter size of array: 5
+Enter array elements :
+5 4 3 2 1 
+```
+### Output
+```
+1 2 3 4 5 
+```
+
+## Complexity Analysis 
+Worst Case Complexity: `O(n^2)`
+If we want to sort in ascending order and the array is in 
+descending order then,the worst case occurs.
+Best Case Complexity: `O(n^2)`
+It occurs when the array is already sorted
+
+Credits
+* [Siddhi Bhanushali](https://github.com/siddhi-244) for the [C++ and python  implementation]
+
+
+
+
