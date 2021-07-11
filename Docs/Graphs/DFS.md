@@ -197,6 +197,5 @@ Space Complexity: O(V).
 Since, an extra visited array is needed of size V.
 
 
-
-# Credits
-* [Akanksha Rai](https://github.com/akanksharai001) 
+## Credits
+* [Akanksha Rai](https://github.com/akanksharai001) for the [C++ and python  implementation]
