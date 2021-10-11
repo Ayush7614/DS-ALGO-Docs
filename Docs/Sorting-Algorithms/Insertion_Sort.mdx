@@ -1,0 +1,46 @@
+# Insertion Sort
+
+## Introduction 
+----------
+- Insertion Sort is an Sorting Algorithm like Bubble Sort. In best case scenario it take O(n) time and in worst case it takes O(n^2) time.
+
+- In this approach the array is assumed to be divided into two parts one is sorted and another is not.
+
+## Algorithm 
+    1. Iterate over 1 to n-1 element.
+    1. Compare every element with its previous element
+    1. If the element is smaller than previous then compare it with element before and swap the smaller one with the larger one.
+
+## Code
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+void insertionSort(int arr[],int n){
+    for(int i=0;i<n-1;i++){
+        int j=i-1; //Previous element
+        while(arr[j]>arr[i] && j>=0 ){
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j+1]=arr[i];
+    }
+
+}
+
+
+int main(){
+    int arr[] = { 12, 11, 13, 5, 6 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    insertionSort(arr, n);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+ 
+    return 0;
+}
+
+```
